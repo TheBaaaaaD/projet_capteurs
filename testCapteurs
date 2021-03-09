@@ -1,0 +1,32 @@
+# coding: UTF-8 
+""" 
+Script: test_capteur/testCapteur
+Création: admin, le 09/03/2021
+"""
+
+
+# Imports 
+import Adafruit_TCS34725
+# Fonctions 
+
+# Programme principal 
+def main():
+# création instance
+    tcs = Adafruit_TCS34725.TCS34725()
+# empecher les interruptions
+    tcs.set_interrupt(False)
+
+# lire valeurs RGB
+    r, g, b, c = tcs.get_raw_data()
+
+# afficher valeurs RGB
+    print('Color: Red{0} Green{1} Blue{2} Clear{3}'.format(r, g, b, c))
+    
+
+# fin utilisation
+    tcs.set_interrupt(True)
+    tcs.disable()
+
+if __name__ == '__main__':
+    main()
+    # Fin
